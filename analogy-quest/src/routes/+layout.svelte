@@ -5,7 +5,7 @@
     export let data: LayoutData;
 </script>
 
-<div class="">
+<div class="min-h-screen">
     <nav>
         <a href="/">Analogy Quest</a>
 
