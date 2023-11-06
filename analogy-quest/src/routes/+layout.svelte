@@ -2,7 +2,7 @@
     import "../app.css"
     import type { LayoutData } from './$types';
     
-    export let data: LayoutData;
+    // export let data: LayoutData;
 </script>
 
 <div class="min-h-screen">
