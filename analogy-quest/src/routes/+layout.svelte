@@ -2,7 +2,7 @@
     import "../app.css"
     import type { LayoutData } from './$types';
     
-    // export let data: LayoutData;
+    export let data: LayoutData;
 </script>
 
 <div class="min-h-screen">
@@ -10,7 +10,14 @@
         <a href="/">Analogy Quest</a>
 
         <div>
+            {#if data.username}
+            <a href="/login">Sign Out</a>
+
+            {:else}
+
             <a href="/login">Sign In</a>
+            {/if}
+
         </div>
     </nav>
 

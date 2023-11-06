@@ -1,5 +1,6 @@
 <script lang="ts">
   import type { PageData } from "./$types";
+  import { page } from "$app/stores";
 
   export let data: PageData;
 </script>
@@ -9,12 +10,12 @@
   <p>A site dedicated to using analogies to help us understand!</p>
 
   
-  {#if data?.user}
+  {#if data?.username}
   <p>You're signed in!</p>
   {:else}
   <div>
     <p>Sign in to contribute or vote!</p>
-    <a href="/login" class="btn">Sign In</a>
+    <a href="/signin" class="btn">Sign In</a>
   </div>
   {/if}
 

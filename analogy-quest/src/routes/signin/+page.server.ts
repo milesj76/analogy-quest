@@ -3,7 +3,7 @@ import type { PageServerLoad, Actions } from './$types';
 
 export const load = (async ({ cookies, locals }) => {
     const loggedIn = await locals.pb.authStore.isValid
-    console.log('is user valid?', loggedIn)
+    // console.log('is user valid?', loggedIn)
 
     if (loggedIn) {
         throw redirect(307, '/')
@@ -24,23 +24,23 @@ export const actions: Actions = {
 
         if (!email) {
             return fail(400, {
-                error: 'Email is missing! Must have an email entered to login!'
+                error: 'Email is missing! Must have an email entered to sign in!'
             })
         }
         if (!password) {
             return fail(400, {
-                error: 'Password is missing! Must have a password entered to login!'
+                error: 'Password is missing! Must have a password entered to sign in!'
             })
         }
 
         try {
             await locals.pb.collection('users').authWithPassword(email as string, password as string)
         } catch (error) {
-            console.log('Failed to login user', email)
-            return { error: 'Failed to login! Please try again!' }
+            console.log('Failed to sign in user', email)
+            return { error: 'Failed to sign in! Please try again!' }
         } 
 
-        console.log(email, 'has logged in!')
+        console.log(email, 'has signed in!')
         return { success: true }
     }
 };
