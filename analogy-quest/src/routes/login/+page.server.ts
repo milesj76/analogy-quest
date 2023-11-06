@@ -3,9 +3,10 @@ import type { PageServerLoad, Actions } from './$types';
 
 export const load = (async ({ cookies, locals }) => {
     const loggedIn = await locals.pb.authStore.isValid
+    console.log('is user valid?', loggedIn)
 
     if (loggedIn) {
-        redirect(307, '/')
+        throw redirect(307, '/')
     }
 
     return {};
@@ -40,6 +41,6 @@ export const actions: Actions = {
         } 
 
         console.log(email, 'has logged in!')
-        throw redirect(304, '/')
+        return { success: true }
     }
 };
