@@ -9,7 +9,7 @@
     <div class="col-start-2 col-span-1 flex flex-col justify-center items-center space-y-8">
         <h1 class="text-5xl">Sign In</h1>
         
-        <form method="post" class="flex flex-col space-y-2 text-xl">
+        <form action="?/signIn" method="post" class="flex flex-col space-y-2 text-xl">
             <label for="">Email
                 <input type="email" name="email" />
             </label>

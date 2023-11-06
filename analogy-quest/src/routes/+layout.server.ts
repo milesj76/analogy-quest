@@ -14,7 +14,3 @@ export const load = (async ({ locals }) => {
 
     return {};
 }) satisfies LayoutServerLoad;
-
-// export const actions: Actions = {
-//     signOut:
-// };

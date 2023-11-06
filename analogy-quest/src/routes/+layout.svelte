@@ -11,11 +11,12 @@
 
         <div>
             {#if data.username}
-            <a href="/login">Sign Out</a>
+            <form action="/signin?/signOut" method="post">
+                <button>Sign Out</button>
+            </form>
 
             {:else}
-
-            <a href="/login">Sign In</a>
+            <a href="/signin">Sign In</a>
             {/if}
 
         </div>

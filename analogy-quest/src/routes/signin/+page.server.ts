@@ -1,7 +1,7 @@
 import { fail, redirect } from '@sveltejs/kit';
 import type { PageServerLoad, Actions } from './$types';
 
-export const load = (async ({ cookies, locals }) => {
+export const load = (async ({ locals }) => {
     const loggedIn = await locals.pb.authStore.isValid
     // console.log('is user valid?', loggedIn)
 
@@ -13,7 +13,7 @@ export const load = (async ({ cookies, locals }) => {
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-    default: async ({ locals, request }) => {
+    signIn: async ({ locals, request }) => {
         // TODO input validation!
         const body = Object.fromEntries(await request.formData())
         const { email, password } = body
@@ -42,5 +42,10 @@ export const actions: Actions = {
 
         console.log(email, 'has signed in!')
         return { success: true }
+    },
+    signOut: async ({ locals }) => {
+        console.log(locals.pb.authStore.model?.username, 'has signed out!')
+        locals.pb.authStore.clear()
+        throw redirect(307, '/')
     }
 };
