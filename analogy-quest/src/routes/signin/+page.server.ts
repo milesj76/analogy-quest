@@ -13,7 +13,7 @@ export const load = (async ({ locals }) => {
 }) satisfies PageServerLoad;
 
 export const actions: Actions = {
-    signIn: async ({ locals, request }) => {
+    signIn: async ({ locals, request, cookies }) => {
         // TODO input validation!
         const body = Object.fromEntries(await request.formData())
         const { email, password } = body
@@ -37,15 +37,16 @@ export const actions: Actions = {
             await locals.pb.collection('users').authWithPassword(email as string, password as string)
         } catch (error) {
             console.log('Failed to sign in user', email)
+            console.log(error)
             return { error: 'Failed to sign in! Please try again!' }
         } 
 
-        console.log(email, 'has signed in!')
-        return { success: true }
+        console.log(email, 'has signed in!')        
+        throw redirect(303, '/')
     },
     signOut: async ({ locals }) => {
         console.log(locals.pb.authStore.model?.username, 'has signed out!')
         locals.pb.authStore.clear()
-        throw redirect(307, '/')
+        throw redirect(303, '/')
     }
 };

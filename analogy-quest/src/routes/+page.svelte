@@ -13,10 +13,8 @@
   {#if data?.username}
   <p>You're signed in!</p>
   {:else}
-  <div>
-    <p>Sign in to contribute or vote!</p>
-    <a href="/signin" class="btn">Sign In</a>
-  </div>
+  <p>Sign in to contribute or vote!</p>
+  <a href="/signin" class="btn">Sign In</a>
   {/if}
 
 </div>

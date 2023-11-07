@@ -11,7 +11,7 @@
 
         <div>
             {#if data.username}
-            <form action="/signin?/signOut" method="post">
+            <form action="/signin?/signOut" method="POST">
                 <button>Sign Out</button>
             </form>
 
