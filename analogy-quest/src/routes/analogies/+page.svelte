@@ -9,8 +9,12 @@
     <ul class="flex flex-col space-y-6">
         {#each data?.mostRecent?.items as analogy}
             <li>
-                <h2>{analogy.topic}</h2>
-                <p>Created on {new Date(analogy.created).toLocaleString()}</p>
+                <div>
+                    <h2>{analogy?.expand.topic.name}</h2>
+                    <p>Created on {new Date(analogy.created).toLocaleString()}</p>
+                </div>
+                <p>{analogy.analogy}</p>
+                <button>See More</button>
             </li>
         {/each}
     </ul>

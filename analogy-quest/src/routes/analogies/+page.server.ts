@@ -1,9 +1,9 @@
 import type { PageServerLoad } from './$types';
 
 export const load = (async ({locals}) => {
-    const recentAnalogies = await locals.pb.collection('analogies').getList(1, 50, {
+    const recentAnalogies = await locals.pb.collection('analogies').getList(1, 20, {
         sort: '-created',
-        expand: 'topics.name'
+        expand: 'topic'
     })
 
     console.log(recentAnalogies)
