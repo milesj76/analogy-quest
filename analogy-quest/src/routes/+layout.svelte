@@ -14,6 +14,7 @@
             <form action="/signin?/signOut" method="POST">
                 <button>Sign Out</button>
             </form>
+            <a href="/">New Analogy</a>
 
             {:else}
             <a href="/signin">Sign In</a>
