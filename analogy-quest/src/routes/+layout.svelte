@@ -9,12 +9,12 @@
     <nav>
         <a href="/">Analogy Quest</a>
 
-        <div>
+        <div class="flex gap-4">
             {#if data.username}
+            <a href="/new">New Analogy</a>
             <form action="/signin?/signOut" method="POST">
                 <button>Sign Out</button>
             </form>
-            <a href="/">New Analogy</a>
 
             {:else}
             <a href="/signin">Sign In</a>
