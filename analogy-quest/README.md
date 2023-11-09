@@ -6,6 +6,9 @@ A website dedicated to discovering the best analogies to understand things bette
 - Sveltekit
 - PocketBase
 
+# Updates
+- 11-8-23 Added "Create" functionality for analogies. Might be worth looking into input validation methods and then building out views, updates and deletes for analogies and topics. Perhaps afterwards I could start adding in comments and "likes" to the system.
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
